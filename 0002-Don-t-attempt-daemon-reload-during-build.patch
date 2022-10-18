@@ -1,0 +1,24 @@
+From e5640d9e6f68ca17a4fd8ff3a266d6dd9cc2a4f4 Mon Sep 17 00:00:00 2001
+From: "Brett T. Warden" <brett.t.warden@intel.com>
+Date: Tue, 18 Oct 2022 16:24:06 -0700
+Subject: [PATCH 2/2] Don't attempt daemon-reload during build
+
+---
+ SConscript | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/SConscript b/SConscript
+index be2ab2ea38ec..2b9cca448054 100644
+--- a/SConscript
++++ b/SConscript
+@@ -3227,7 +3227,6 @@ if env['systemd']:
+         env.AlwaysBuild(systemctl_daemon_reload)
+         env.Precious(systemctl_daemon_reload)
+         env.Requires(systemctl_daemon_reload, systemd_install)
+-        env.Requires(udev_install, systemctl_daemon_reload)
+ 
+ 
+ Utility('udev-uninstall', '', [
+-- 
+2.38.0
+

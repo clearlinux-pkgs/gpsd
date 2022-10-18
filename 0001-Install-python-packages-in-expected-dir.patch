@@ -1,0 +1,27 @@
+From 075dced35eba99e0e8d54153c6476f26d902234e Mon Sep 17 00:00:00 2001
+From: "Brett T. Warden" <brett.t.warden@intel.com>
+Date: Tue, 18 Oct 2022 14:54:14 -0700
+Subject: [PATCH 1/2] Install python packages in expected dir
+
+---
+ SConscript | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/SConscript b/SConscript
+index 41eb82b6d8e7..be2ab2ea38ec 100644
+--- a/SConscript
++++ b/SConscript
+@@ -1575,8 +1575,8 @@ if not cleaning and not helping and config.env['python']:
+             # follow FHS, put in /usr/local/libXX, not /usr/libXX
+             # may be lib, lib32 or lib64
+             python_libdir = polystr(python_libdir)
+-            python_libdir = python_libdir.replace("/usr/lib",
+-                                                  "/usr/local/lib")
++            python_libdir = python_libdir.replace("/usr", env['prefix'])
++
+         python_module_dir = str(python_libdir) + os.sep
+         # Many systems can have a problem with the Python path
+         if 'PYTHONPATH' in os.environ:
+-- 
+2.38.0
+
