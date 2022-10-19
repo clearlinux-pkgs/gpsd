@@ -6,7 +6,7 @@
 #
 Name     : gpsd
 Version  : 3.24
-Release  : 1
+Release  : 2
 URL      : http://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.24.tar.xz
 Source0  : http://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.24.tar.xz
 Source1  : http://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.24.tar.xz.sig
@@ -27,6 +27,7 @@ BuildRequires : buildreq-scons
 BuildRequires : glibc-dev
 BuildRequires : pkgconfig(Qt5Core)
 BuildRequires : pkgconfig(Qt5Network)
+BuildRequires : pkgconfig(bluez)
 BuildRequires : pkgconfig(dbus-1)
 BuildRequires : pkgconfig(gtk+-3.0)
 BuildRequires : pkgconfig(libusb-1.0)
@@ -163,7 +164,8 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 scons prefix=/usr \
 libdir=/usr/lib64 \
 udevdir=%{buildroot}/usr/lib/udev \
-unitdir=/usr/lib/systemd/system
+unitdir=/usr/lib/systemd/system \
+qt_versioned=5
 
 %install
 scons install --install-sandbox=%{buildroot} \
@@ -222,8 +224,11 @@ cp %{_builddir}/gpsd-%{version}/COPYING %{buildroot}/usr/share/package-licenses/
 %defattr(-,root,root,-)
 /usr/include/gps.h
 /usr/include/libgpsmm.h
+/usr/lib64/libQgpsmm.prl
+/usr/lib64/libQgpsmm.so
 /usr/lib64/libgps.so
 /usr/lib64/libgpsdpacket.so
+/usr/lib64/pkgconfig/Qgpsmm.pc
 /usr/lib64/pkgconfig/libgps.pc
 /usr/share/man/man3/libQgpsmm.3
 /usr/share/man/man3/libgps.3
@@ -231,6 +236,8 @@ cp %{_builddir}/gpsd-%{version}/COPYING %{buildroot}/usr/share/package-licenses/
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/libQgpsmm.so.29
+/usr/lib64/libQgpsmm.so.29.0.1
 /usr/lib64/libgps.so.29
 /usr/lib64/libgps.so.29.0.1
 /usr/lib64/libgpsdpacket.so.29

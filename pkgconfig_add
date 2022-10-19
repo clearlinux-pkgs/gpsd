@@ -2,6 +2,7 @@
 # not get picked up automatically. One name per line, no whitespace.
 Qt5Core
 Qt5Network
+bluez
 dbus-1
 gtk+-3.0
 libusb-1.0

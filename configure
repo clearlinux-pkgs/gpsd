@@ -2,3 +2,4 @@ prefix=/usr
 libdir=/usr/lib64
 udevdir=%{buildroot}/usr/lib/udev
 unitdir=/usr/lib/systemd/system
+qt_versioned=5
