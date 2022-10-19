@@ -6,7 +6,7 @@
 #
 Name     : gpsd
 Version  : 3.24
-Release  : 2
+Release  : 3
 URL      : http://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.24.tar.xz
 Source0  : http://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.24.tar.xz
 Source1  : http://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.24.tar.xz.sig
@@ -162,6 +162,7 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 scons prefix=/usr \
+sbindir=bin \
 libdir=/usr/lib64 \
 udevdir=%{buildroot}/usr/lib/udev \
 unitdir=/usr/lib/systemd/system \
@@ -184,6 +185,8 @@ cp %{_builddir}/gpsd-%{version}/COPYING %{buildroot}/usr/share/package-licenses/
 /usr/bin/gpscat
 /usr/bin/gpscsv
 /usr/bin/gpsctl
+/usr/bin/gpsd
+/usr/bin/gpsdctl
 /usr/bin/gpsdebuginfo
 /usr/bin/gpsdecode
 /usr/bin/gpsfake
@@ -202,8 +205,6 @@ cp %{_builddir}/gpsd-%{version}/COPYING %{buildroot}/usr/share/package-licenses/
 /usr/bin/xgps
 /usr/bin/xgpsspeed
 /usr/bin/zerk
-/usr/sbin/gpsd
-/usr/sbin/gpsdctl
 
 %files config
 %defattr(-,root,root,-)
