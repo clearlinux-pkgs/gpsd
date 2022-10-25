@@ -6,7 +6,7 @@
 #
 Name     : gpsd
 Version  : 3.24
-Release  : 3
+Release  : 4
 URL      : http://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.24.tar.xz
 Source0  : http://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.24.tar.xz
 Source1  : http://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.24.tar.xz.sig
