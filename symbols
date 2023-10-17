@@ -98,8 +98,6 @@ libQgpsmm.so.30:netlib_sock2ip
 libQgpsmm.so.30:now_to_iso8601
 libQgpsmm.so.30:os_daemon
 libQgpsmm.so.30:safe_atof
-libQgpsmm.so.30:strlcat
-libQgpsmm.so.30:strlcpy
 libQgpsmm.so.30:timespec_str
 libQgpsmm.so.30:timespec_to_iso8601
 libQgpsmm.so.30:ubx2_to_prn
@@ -202,8 +200,6 @@ libgps.so.30:safe_atof
 libgps.so.30:sbits
 libgps.so.30:shiftleft
 libgps.so.30:shm_get
-libgps.so.30:strlcat
-libgps.so.30:strlcpy
 libgps.so.30:timespec_str
 libgps.so.30:timespec_to_iso8601
 libgps.so.30:ubits
@@ -231,5 +227,3 @@ libgpsdpacket.so.30:packet_parse
 libgpsdpacket.so.30:packet_reset
 libgpsdpacket.so.30:rtcm2_decode
 libgpsdpacket.so.30:rtcm2_unpack
-libgpsdpacket.so.30:strlcat
-libgpsdpacket.so.30:strlcpy
