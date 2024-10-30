@@ -9,7 +9,7 @@
 #
 Name     : gpsd
 Version  : 3.25
-Release  : 8
+Release  : 9
 URL      : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz
 Source0  : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz
 Source1  : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz.sig
