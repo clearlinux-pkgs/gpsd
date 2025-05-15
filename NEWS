@@ -1,6 +1,34 @@
                         GPSD project news
 
-3.25: 2022-01-09
+3.26: 11 May 2025
+  Handle NTRIPv2 that comes in "chunks".
+  Add many UBX decodes.  Mostly in ubxtool, some in gpsd.
+  Improve TSIP and UBX intitalization.
+  Gather Antenna Status (ant_stat) and Jamming (jam) and send to JSON.
+  Always build u-blox, RTCM104V2, RTCM104V3 drivers.
+  Add partial support for badly documented ALLYSTAR GNSS messages.
+  Add minimal support for Unicore GNSS messages.
+  Add minimal support for CASIC GNSS messages.
+  Add minimal support for buggy Inertial Sense GNSS messages.
+  Try to work better as non-root using non-standard "capabilities".
+  Add SUBSYSTEM=gnss rule to gpsd.rules
+  Moved ntploggps from NTPSec to GPSD and renamed to gpslogntp.
+  Fix many build, Coverity, and Codacy warnings.
+  Improved Python interface for the lexer.
+  Add support for new BeiDou PRNs and subframes.
+  Officially deprecate gpsmon.
+  Improve support for NMEA 4.11 (a stealthy moving target).
+  Remove Oceanserver IMU support.  Never worked well.
+  Always with  build ubx, NMEA 103, rtcm104v2 and rtcm104v3 support.
+  Add support for jamming detection.
+  Add Go client example.
+  Add support for RTCM3.2
+
+  Note: The new "chunk" code led to a short lived bug that led to
+        CVE-2023-43628, a buffer overrun.  That bug never appeared in
+        any gpsd release.
+
+3.25: 2022-10-09
   Have ubxtool "-w 0" run forever.
   Bump libgps version to 30.0
   Change fixsource_t, store server locally, make pointers const.
