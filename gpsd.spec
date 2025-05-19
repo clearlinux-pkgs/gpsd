@@ -9,7 +9,7 @@
 #
 Name     : gpsd
 Version  : 3.26.1
-Release  : 12
+Release  : 13
 URL      : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz
 Source0  : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz
 Source1  : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz.sig
