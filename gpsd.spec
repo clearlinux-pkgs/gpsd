@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xAEFDB88FB63FB83B (gem@rellim.com)
 #
 Name     : gpsd
-Version  : 3.26
-Release  : 10
-URL      : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.tar.xz
-Source0  : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.tar.xz
-Source1  : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.tar.xz.sig
+Version  : 3.26.1
+Release  : 11
+URL      : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz
+Source0  : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz
+Source1  : https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz.sig
 Source2  : AEFDB88FB63FB83B.pkey
 Summary  : Service daemon for mediating access to a GPS
 Group    : Development/Tools
@@ -157,12 +157,12 @@ chmod 700 .gnupg
 gpg --homedir .gnupg --import %{SOURCE2}
 gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
 grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) AEFDB88FB63FB83B' gpg.status
-%setup -q -n gpsd-3.26
-cd %{_builddir}/gpsd-3.26
+%setup -q -n gpsd-3.26.1
+cd %{_builddir}/gpsd-3.26.1
 %patch -P 1 -p1
 %patch -P 2 -p1
 pushd ..
-cp -a gpsd-3.26 buildavx2
+cp -a gpsd-3.26.1 buildavx2
 popd
 
 %build
@@ -174,10 +174,10 @@ export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
 CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
 FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
@@ -265,12 +265,12 @@ cp %{_builddir}/gpsd-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libQgpsmm.so.30
-/usr/lib64/libQgpsmm.so.30.0.0
-/usr/lib64/libgps.so.30
-/usr/lib64/libgps.so.30.0.0
-/usr/lib64/libgpsdpacket.so.30
-/usr/lib64/libgpsdpacket.so.30.0.0
+/usr/lib64/libQgpsmm.so.31
+/usr/lib64/libQgpsmm.so.31.0.0
+/usr/lib64/libgps.so.31
+/usr/lib64/libgps.so.31.0.0
+/usr/lib64/libgpsdpacket.so.31
+/usr/lib64/libgpsdpacket.so.31.0.0
 
 %files license
 %defattr(0644,root,root,0755)
